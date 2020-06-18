@@ -10,10 +10,10 @@ import { PixabayHit } from 'src/app/interfaces/pixabay-hit';
 export class ImageGridComponent implements OnInit {
   public imageList: PixabayHit[];
 
-  constructor(private _pixabayService: PixabayService) { }
+  constructor(private pixabayService: PixabayService) { }
 
   ngOnInit(): void {
-    this._pixabayService.imageList.subscribe((data:PixabayHit[]) => {
+    this.pixabayService.imageList.subscribe((data: PixabayHit[]) => {
       this.imageList = data;
     });
   }

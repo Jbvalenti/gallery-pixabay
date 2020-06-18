@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   pixabay: {
-    token: "15210824-3845033afa450d7e6c63aec8e",
-    url: "https://pixabay.com/api/"
+    token: '15210824-3845033afa450d7e6c63aec8e',
+    url: 'https://pixabay.com/api/'
   }
 };
 

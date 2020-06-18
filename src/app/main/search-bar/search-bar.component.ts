@@ -7,15 +7,15 @@ import { PixabayService } from 'src/app/services/pixabay.service';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-  public query = "";
+  public query = '';
 
-  constructor(private _pixabayService: PixabayService) { }
+  constructor(private pixabayService: PixabayService) { }
 
   ngOnInit(): void {
     this.onSearch();
   }
 
   public onSearch(): void {
-    this._pixabayService.getImage(this.query);
+    this.pixabayService.getImage(this.query);
   }
 }
