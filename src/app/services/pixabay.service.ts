@@ -10,9 +10,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PixabayService {
   private pixabayBaseUrl = environment.pixabay.url + '?key=' + environment.pixabay.token + '&q=';
-  private imageSource = new BehaviorSubject<PixabayHit[]>([]);
+  private imageListSource = new BehaviorSubject<PixabayHit[]>([]);
+  private imageFocusSource = new BehaviorSubject<PixabayHit>(null);
 
-  public imageList = this.imageSource.asObservable();
+  public imageList = this.imageListSource.asObservable();
+  public imageFocus = this.imageFocusSource.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,7 +22,15 @@ export class PixabayService {
     this.httpClient.get(this.pixabayBaseUrl + query, {
       responseType: 'json'
     }).subscribe((response: PixabayPayload) => {
-      this.imageSource.next(response.hits);
+      this.imageListSource.next(response.hits);
     });
+  }
+
+  public setFocusImage(image: PixabayHit): void {
+    this.imageFocusSource.next(image);
+  }
+
+  public hideFocusImage(): void {
+    this.imageFocusSource.next(null);
   }
 }

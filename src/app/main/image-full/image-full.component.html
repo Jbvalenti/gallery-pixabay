@@ -1,0 +1,6 @@
+<div id="parent" class="d-flex" *ngIf="image !== null" (click)="onHide()" [@inOutAnimation]>
+    <div>
+        <img [src]="image.largeImageURL" alt="" (click)="$event.stopPropagation()">
+        <span class="material-icons">close</span>
+    </div>
+</div>

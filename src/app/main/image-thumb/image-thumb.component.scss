@@ -1,0 +1,24 @@
+img {
+  cursor: pointer;
+  margin: auto;
+  max-width: 22.5em;
+  max-height: 22.5em;
+  border-radius: 1em;
+  transition: max-height 0.5s, max-width 0.5s;
+}
+
+img:hover {
+  max-width: 25em;
+  max-height: 25em;
+}
+
+div {
+  width: 25em;
+  height: 25em;
+}
+
+.test {
+  cursor: default;
+  max-width: 100vw;
+  max-height: 100vh;
+}
